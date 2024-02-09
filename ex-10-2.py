@@ -1,0 +1,5 @@
+m = float(input('请输入数字1： '))
+n = float(input('请输入数字2： '))
+l = float(input('请输入数字3： '))
+print('三个数的和是： ',m+n+l)
+print('三个数的平均数是： ',(m+n+l)/3)
