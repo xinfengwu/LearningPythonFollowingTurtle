@@ -5,7 +5,7 @@ from turtle import *
 for i in range(4):
     if i % 2 == 0:
         color('red')
-    if i % 2 == 1:
+    else:
         color('green')
     forward(150)
     right(90)
