@@ -2,46 +2,56 @@ import turtle
 
 # 创建画布
 screen = turtle.Screen()
-screen.setup(width=600, height=600)
+screen.setup(width=800, height=600)
+screen.bgcolor("red")
 
-# 创建画笔
-pen = turtle.Turtle()
-pen.speed(2)  # 设置速度
+# 创建海龟对象
+t = turtle.Turtle()
+t.hideturtle()
+t.speed(0)
 
-# 设置线条颜色为黄色
-pen.color("yellow")
+# 绘制五星红旗
+def draw_china_flag():
+    # 绘制大五角星
+    t.penup()
+    t.goto(-100, 50)
+    t.pendown()
+    t.color("yellow")
+    t.begin_fill()
+    for _ in range(5):
+        t.forward(200)
+        t.right(144)
+    t.end_fill()
+    
+    # 绘制四个小五角星
+    t.penup()
+    t.goto(-60, 110)
+    t.pendown()
+    for _ in range(4):
+        t.begin_fill()
+        for _ in range(5):
+            t.forward(25)
+            t.right(144)
+        t.end_fill()
+        t.penup()
+        t.forward(50)
+        
+    # 绘制横幅
+    t.penup()
+    t.goto(-100, 30)
+    t.pendown()
+    t.color("yellow")
+    t.begin_fill()
+    for _ in range(2):
+        t.forward(200)
+        t.right(90)
+        t.forward(40)
+        t.right(90)
+    t.end_fill()
 
-# 画五角星
-for _ in range(5):
-    pen.forward(100)
-    pen.right(144)
+# 绘制中国国旗
+draw_china_flag()
 
-# 创建填充画笔
-fill_pen = turtle.Turtle()
-fill_pen.speed(0)  # 设置填充画笔速度为最快
-
-# 移动到五角星中心并开始填充
-fill_pen.penup()
-fill_pen.goto(pen.pos())
-fill_pen.pendown()
-
-# 设置填充颜色为紫色
-fill_pen.fillcolor("purple")
-
-# 开始填充
-fill_pen.begin_fill()
-
-# 画五角星
-for _ in range(5):
-    fill_pen.forward(100)
-    fill_pen.right(144)
-
-# 结束填充
-fill_pen.end_fill()
-
-# 隐藏填充画笔
-fill_pen.hideturtle()
-
-# 关闭画布时继续显示
-screen.mainloop()
+# 保持窗口打开
+turtle.done()
 
