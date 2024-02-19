@@ -35,5 +35,7 @@ penup()
 goto(0, -200)
 setheading(90)
 pendown()
-drawBranch(100)
+while input() != '':
+    drawBranch(100)
+    clear()
 done()
