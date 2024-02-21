@@ -9,25 +9,27 @@ w = 600  # 窗口宽度
 step = 40  # 条纹间距
 setup(width=w, height=h)
 hideturtle()
-tracer(False)
-# 绘制背景
-bgcolor('white')
-for x in range(-int(w / 2), int(w / 2 + 1), step):
-    penup()
-    goto(x, h / 2)
-    pendown()
-    color('black')
-    begin_fill()
-    for i in range(2):
-        forward(step / 2)
-        right(90)
-        forward(h)
-        right(90)
-    end_fill()
 x = 0
 y = 0
 d = 50
 vx = -3  # 小球x方向速度
+
+
+# 绘制背景
+def drawbg():
+    #  bgcolor('white')
+    for x in range(-int(w / 2), int(w / 2 + 1), step):
+        penup()
+        goto(x, h / 2)
+        pendown()
+        color('black')
+        begin_fill()
+        for i in range(2):
+            forward(step / 2)
+            right(90)
+            forward(h)
+            right(90)
+        end_fill()
 
 
 # 定义函数,绘制方块（x、y坐标、颜色）
@@ -69,6 +71,7 @@ def update():
 while True:
     tracer(False)
     clear()  # 清空屏幕
+    drawbg()
     draw()
     update()
     tracer(True)  # 显示绘制过程
